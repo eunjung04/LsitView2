@@ -24,7 +24,8 @@ class MainActivity : AppCompatActivity() {
         appList.add(App("AFK아레나", "Lilith Games", 1))
 
 
-        mAppAdapter=AppAdapter(this, R.layout.app)
+        mAppAdapter=AppAdapter(this, R.layout.app_list_item,appList)
+
 
     }
 }
