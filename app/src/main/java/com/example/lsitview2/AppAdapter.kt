@@ -1,6 +1,25 @@
 package com.example.lsitview2
 
-class AppAdapter {
+import android.content.Context
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ArrayAdapter
 
-    v
+class AppAdapter(context: Context, resId:Int, list:ArrayList<App>): ArrayAdapter<App>(context,resId, list){
+
+    val mContext=context
+    val mList=list
+    val inf=LayoutInflater.from(mContext)
+
+
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+        var tempRow = convertView
+        if (tempRow == null) {
+            tempRow=inf.inflate(R.layout.app_list__item)
+
+        }
+
+    }
+
 }
