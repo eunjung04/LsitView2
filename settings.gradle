@@ -1,0 +1,2 @@
+rootProject.name='LsitView2'
+include ':app'
