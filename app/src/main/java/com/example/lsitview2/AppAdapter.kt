@@ -20,32 +20,45 @@ class AppAdapter(context: Context, resId:Int, list:ArrayList<App>): ArrayAdapter
         tempRow?.let {
 
         }.let {
-            tempRow=inf.inflate(R.layout.con_list_item, null)
+            tempRow=inf.inflate(R.layout.app_list_item, null)
         }
 
 
 
         val row=tempRow!!
 
-        val star1=row.findViewById<ImageView>(R.id.star1)
+        val title = row.findViewById<TextView>(R.id.title)
+        val companyName = row.findViewById<TextView>(R.id.companyName)
+        val starImg1 = row.findViewById<ImageView>(R.id.star1)
+        val starImg2 = row.findViewById<ImageView>(R.id.star2)
+        val starImg3 = row.findViewById<ImageView>(R.id.star3)
+        val starImg4 = row.findViewById<ImageView>(R.id.star4)
+        val starImg5 = row.findViewById<ImageView>(R.id.star5)
 
-        val star1=row.findViewById<TextView>(R.id.title)
+        val data = mList.get(position)
 
-        title.text="${position+1}.${data.name}"
-        companyName.text=data.companyName
+        title.text = "${position+1}. ${data.name}"
+        companyName.text = data.companyName
 
+//        starImg1.setImageResource(R.drawable.fill_star)
 
-        val star1List=ArrayList<ImageView>()
-        star1List.add(star1)
-        star1List.add(star2)
-        star1List.add(star3)
-        star1List.add(star4)
-        star1List.add(star5)
+        val starImgList = ArrayList<ImageView>()
+        starImgList.add(starImg1)
+        starImgList.add(starImg2)
+        starImgList.add(starImg3)
+        starImgList.add(starImg4)
+        starImgList.add(starImg5)
 
-        for (index in 0..4){
-            val star1=star1List.get(index)
+        for (index in 0..4) {
+            val starImg = starImgList.get(index)
 
-            if(index < star1List.get(index)
+            if (index < data.starCount) {
+                starImg.setImageResource(R.drawable.star1)
+            }
+            else {
+                starImg.setImageResource(R.drawable.star2)
+            }
+
         }
 
         return row
