@@ -44,7 +44,8 @@ class MainActivity : AppCompatActivity() {
 
             mAppAdapter?.notifyDataSetChanged()
 
-            alert.set
+            alert.setNegativeButton("취소", null)
+            alert.setNeutralButton("모름", null)
 
             alert.show()
         }
