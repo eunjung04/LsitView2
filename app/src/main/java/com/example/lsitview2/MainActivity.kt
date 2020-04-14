@@ -1,8 +1,13 @@
 package com.example.lsitview2
 
+import android.app.SearchManager
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.function.ToDoubleBiFunction
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,9 +24,30 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
+
     }
 
     fun setupEvents(){
+
+        appListView.setOnItemClickListener { parent, view, position, id ->
+
+            val alert=AlertDialog.Builder(this)
+
+            alert.setTitle("삭제 확인")
+            alert.setMessage("정말 이 앱을 삭제하시겠습니까?")
+            alert.setPositiveButton("확인", object : DialogInterface.OnClickListener)
+
+            Log.d("앱 목록 갯수-삭제전", apps.size.toString())
+            apps.removeAt(position)
+            Log.d("앱 목록 갯수-삭제후", apps.size.toString())
+
+            mAppAdapter?.notifyDataSetChanged()
+
+            alert.set
+
+            alert.show()
+        }
 
     }
 
